@@ -29,14 +29,17 @@ pipeline{
 		}
 	}
 }
+// スクリプトを実行
 def executeScript(script, args){
 
 	add_execute_permission(script){
-	sh ${script} ${args}
+	sh "${script} ${args}"
+	}
 }
 
-}
 // 実行権限を追加
 def add_execute_permission(path){
 	sh "chmod +x ${path}"
 }
+
+
