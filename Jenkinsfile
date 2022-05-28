@@ -8,7 +8,9 @@ pipeline{
 	stages{
 		stage('ビルド'){
 			steps {
-				sh '${JENKINS_SCRIPT_DIR}/test.sh'
+				dir('${JENKINS_SCRIPT_DIR}') {
+				    sh './test.sh'
+				}
 			}
 		}
 	}
