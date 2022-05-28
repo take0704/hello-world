@@ -9,7 +9,7 @@ pipeline{
 		stage('ビルド'){
 			steps {
 				dir("${JENKINS_SCRIPT_DIR}") {
-					executeScript("test.sh")
+					executeScript("test.sh","")
 				}
 			}
 		}
