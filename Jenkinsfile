@@ -8,8 +8,8 @@ pipeline{
 	stages{
 		stage('ビルド'){
 			steps {
-				dir('${JENKINS_SCRIPT_DIR}') {
-				    sh './test.sh'
+				dir(${JENKINS_SCRIPT_DIR}) {
+					sh './test.sh'
 				}
 			}
 		}
