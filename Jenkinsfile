@@ -9,6 +9,7 @@ pipeline{
 		stage('ビルド'){
 			steps {
 				dir("${JENKINS_SCRIPT_DIR}") {
+					sh "chmod +x test.sh"
 					sh './test.sh'
 				}
 			}
