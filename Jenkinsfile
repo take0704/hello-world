@@ -9,8 +9,7 @@ pipeline{
 		stage('ビルド'){
 			steps {
 				dir("${JENKINS_SCRIPT_DIR}") {
-					sh "chmod +x test.sh"
-					sh './test.sh'
+					executeScript("test.sh")
 				}
 			}
 		}
@@ -29,4 +28,15 @@ pipeline{
 			sh 'echo "失敗"'
 		}
 	}
+}
+def executeScript(script, args){
+
+	add_execute_permission(script){
+	sh ${script} ${args}
+}
+
+}
+// 実行権限を追加
+def add_execute_permission(path){
+	sh "chmod +x ${path}"
 }
