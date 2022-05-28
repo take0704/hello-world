@@ -1,9 +1,10 @@
 JENKINS_SCRIPT_DIR="./jenkins/sh"
 
 pipeline{ 
+	agent any
 	environment { 
 		CI = 'true'
-    }
+	}
 	stages{
 		stage('ビルド'){
 			steps {
@@ -13,7 +14,7 @@ pipeline{
 			}
 		}
 	}
-    post {
+	post {
 		always{
 			// 
 			sh 'echo "always"'
