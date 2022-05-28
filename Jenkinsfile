@@ -1,7 +1,6 @@
 JENKINS_SCRIPT_DIR="./jenkins/sh"
 
 pipeline{ 
-	agent any
 	environment { 
 		CI = 'true'
     }
