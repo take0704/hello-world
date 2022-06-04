@@ -32,7 +32,7 @@ pipeline{
 
 // スクリプトを実行
 def executeScript(script, args){
-	sh "chmod +x ${path}"
+	sh "sudo chmod +x ${path}"
 	sh "${script} ${args}"
 }
 
