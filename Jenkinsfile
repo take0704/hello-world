@@ -32,6 +32,8 @@ pipeline{
 
 // スクリプトを実行
 def executeScript(script, args){
+	sh "pwd"
+	sh "ls -la"
 	sh "chmod +x ${script}"
 	sh "${script} ${args}"
 }
