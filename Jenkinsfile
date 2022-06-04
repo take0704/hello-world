@@ -1,4 +1,4 @@
-JENKINS_SCRIPT_DIR="./jenkins/sh"
+JENKINS_SCRIPT_DIR="./jenkins/sh/"
 
 pipeline{ 
 	agent any
@@ -32,8 +32,8 @@ pipeline{
 
 // スクリプトを実行
 def executeScript(script, args){
-	sh "chmod +x ${JENKINS_SCRIPT_DIR}/${script}"
-	sh "${JENKINS_SCRIPT_DIR}/${script} ${args}"
+	sh "chmod +x ${script}"
+	sh "${script} ${args}"
 }
 
 
