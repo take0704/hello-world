@@ -32,10 +32,8 @@ pipeline{
 
 // スクリプトを実行
 def executeScript(script, args){
-	sh "pwd"
-	sh "ls -la"
-	sh "chmod +x ${script}"
-	sh "${script} ${args}"
+	sh "chmod +x ${JENKINS_SCRIPT_DIR}/${script}"
+	sh "${JENKINS_SCRIPT_DIR}/${script} ${args}"
 }
 
 
