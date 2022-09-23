@@ -33,7 +33,7 @@ pipeline{
 // スクリプトを実行
 def executeScript(script_filename, args){
 	parmittion_setting(script_filename)
-	sh "${JENKINS_SCRIPT_DIR}${script_filename} ${args}"
+	sh "${script_filename} ${args}"
 }
 
 //指定パスの実行権限を設定
