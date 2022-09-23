@@ -1,4 +1,4 @@
-JENKINS_SCRIPT_DIR="./jenkins/sh/"
+JENKINS_SCRIPT_DIR="./jenkins/sh"
 
 pipeline{ 
 	agent any
@@ -9,6 +9,8 @@ pipeline{
 		stage('ビルド'){
 			steps {
 				dir("${JENKINS_SCRIPT_DIR}") {
+					bash "pwd"
+					bash "ls -la"
 					executeScript("test.sh","")
 				}
 			}
@@ -17,23 +19,25 @@ pipeline{
 	post {
 		always{
 			// 
-			sh 'echo "always"'
+			bash 'echo "always"'
 		}
 		success {
 			// 成功時のメッセージ
-			sh 'echo "成功"'
+			bash 'echo "成功"'
 		}
 		failure {
 			// 失敗時のメッセージ
-			sh 'echo "失敗"'
+			bash 'echo "失敗"'
 		}
 	}
 }
 
 // スクリプトを実行
 def executeScript(script, args){
-	sh "chmod +x ${script}"
-	sh "${script} ${args}"
+	bash "pwd"
+	bash "ls -la"
+	bash "chmod +x ${script}"
+	bash "${script} ${args}"
 }
 
 
