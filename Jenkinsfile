@@ -9,8 +9,8 @@ pipeline{
 		stage('ビルド'){
 			steps {
 				dir("${JENKINS_SCRIPT_DIR}") {
-					bash "pwd"
-					bash "ls -la"
+					sh "pwd"
+					sh "ls -la"
 					executeScript("test.sh","")
 				}
 			}
@@ -19,25 +19,25 @@ pipeline{
 	post {
 		always{
 			// 
-			bash 'echo "always"'
+			sh 'echo "always"'
 		}
 		success {
 			// 成功時のメッセージ
-			bash 'echo "成功"'
+			sh 'echo "成功"'
 		}
 		failure {
 			// 失敗時のメッセージ
-			bash 'echo "失敗"'
+			sh 'echo "失敗"'
 		}
 	}
 }
 
 // スクリプトを実行
 def executeScript(script, args){
-	bash "pwd"
-	bash "ls -la"
-	bash "chmod +x ${script}"
-	bash "${script} ${args}"
+	sh "pwd"
+	sh "ls -la"
+	sh "chmod +x ${script}"
+	sh "${script} ${args}"
 }
 
 
