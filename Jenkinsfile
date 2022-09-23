@@ -1,4 +1,4 @@
-JENKINS_SCRIPT_DIR=jenkins/sh
+JENKINS_SCRIPT_DIR="jenkins/sh/"
 
 pipeline{ 
 	agent any
@@ -8,10 +8,10 @@ pipeline{
 	stages{
 		stage('ビルド'){
 			steps {
-				dir("${JENKINS_SCRIPT_DIR}") {
+				dir("") {
 					sh "pwd"
 					sh "ls -la"
-					executeScript("test.sh","")
+					executeScript("${JENKINS_SCRIPT_DIR}test.sh","")
 				}
 			}
 		}
@@ -34,9 +34,12 @@ pipeline{
 
 // スクリプトを実行
 def executeScript(script_filename, args){
-	sh "chmod +x ${WORKSPACE}/${JENKINS_SCRIPT_DIR}/${script_filename}"
-	sh "${WORKSPACE}/${JENKINS_SCRIPT_DIR}/${script_filename} ${args}"
+	parmittion_setting(script_filename)
+	sh "${WORKSPACE}/${JENKINS_SCRIPT_DIR}${script_filename} ${args}"
 }
 
-
+//指定パスの実行権限を設定
+def parmittion_setting(path){
+	sh "chmod +x ${path}"
+}
 
