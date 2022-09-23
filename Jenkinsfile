@@ -1,4 +1,4 @@
-JENKINS_SCRIPT_DIR="${WORKSPACE}/jenkins/sh"
+JENKINS_SCRIPT_DIR=${WORKSPACE}/jenkins/sh
 
 pipeline{ 
 	agent any
